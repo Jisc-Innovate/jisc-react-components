@@ -12,10 +12,10 @@ const config = {
 
   externals: {
     react: {
-      root: 'React',
-      commonjs2: 'react',
-      commonjs: 'react',
-      amd: 'react'
+      root: "React",
+      commonjs2: "react",
+      commonjs: "react",
+      amd: "react"
     }
   },
 
@@ -26,7 +26,8 @@ const config = {
 
   output: {
     path: path.join( __dirname, "lib" ),
-    filename: "jisc-button-primary.js"
+    filename: "jisc-button-primary.js",
+    libraryTarget: "umd"
   },
 
   module: {
@@ -41,12 +42,6 @@ const config = {
 
   plugins: [
     new webpack.NoEmitOnErrorsPlugin( ),
-
-    new webpack.DefinePlugin({
-      "process.env": {
-        "NODE_ENV": "'development'"
-      }
-    }),
 
     new webpack.optimize.UglifyJsPlugin( )
   ]
