@@ -1,6 +1,6 @@
 {
   "name": "jisc-button-primary",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Primary Button",
   "main": "index.js",
   "author": "Edoardo L'Astorina <edo@blufra.me>",
