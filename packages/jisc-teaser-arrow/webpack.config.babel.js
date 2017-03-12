@@ -4,8 +4,6 @@ import path from "path"
 const APP_DIR = path.join( __dirname, "src" )
 
 const config = {
-  devtool: "source-map",
-
   entry: [
     APP_DIR + "/TeaserArrow.jsx"
   ],

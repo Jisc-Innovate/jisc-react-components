@@ -5,7 +5,7 @@ const APP_DIR = path.join( __dirname, "src" )
 
 const config = {
   entry: [
-    APP_DIR + "/ButtonPrimary.jsx"
+    APP_DIR + "/Form.jsx"
   ],
 
   externals: {
@@ -24,7 +24,7 @@ const config = {
 
   output: {
     path: path.join( __dirname, "lib" ),
-    filename: "jisc-button-primary.js",
+    filename: "jisc-form.js",
     libraryTarget: "umd"
   },
 
