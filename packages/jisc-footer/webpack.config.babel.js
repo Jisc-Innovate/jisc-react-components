@@ -24,7 +24,7 @@ const config = {
 
   output: {
     path: path.join( __dirname, "lib" ),
-    filename: "jisc-footer.js",
+    filename: "jisc-form.js",
     libraryTarget: "umd"
   },
 
@@ -36,8 +36,8 @@ const config = {
         loader: "babel-loader"
       },
       {
-        test: /\.(png|gif)$/,
-        loader: "url-loader?limit=8192"
+        test: /\.png$/,
+        use: "url-loader?limit=16374"
       }
     ]
   },

@@ -2,8 +2,11 @@ import React from "react"
 import { mount, shallow } from "enzyme"
 
 import Footer from "../src/Footer.jsx"
-import FooterDescription from "../src/FooterDescription.jsx"
 import FooterMenu from "../src/FooterMenu.jsx"
+
+jest.mock( "../src/FooterDescription.jsx", () => "FooterDescription" )
+
+const FooterDescription = require( "../src/FooterDescription.jsx" )
 
 const props = {
   minimal: false,
@@ -69,12 +72,5 @@ describe( "Footer", ( ) => {
 
     expect( footer.find( FooterDescription ).length ).toBe( 0 )
     expect( footer.find( FooterMenu ).length ).toBe( 0 )
-  })
-
-  it( "shows JISC logo", ( ) => {
-    const footer = mount( <Footer /> )
-
-    expect( footer.find( "img" ).prop( "src" ) ).toBe( "/images/jisc-logo.png" )
-    expect( footer.find( "img" ).prop( "alt" ) ).toBe( "Jisc logo" )
   })
 })
