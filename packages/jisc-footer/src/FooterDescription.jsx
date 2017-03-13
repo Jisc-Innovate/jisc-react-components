@@ -1,4 +1,5 @@
 import React from "react"
+import image from "url-loader!./jisc-logo.png"
 
 class FooterDescription extends React.Component {
   render( ) {
@@ -9,7 +10,7 @@ class FooterDescription extends React.Component {
             <div className="divisional-info__side">
               <img
                  alt="Jisc logo"
-                 src="/images/jisc-logo.png"
+                 src={image}
                  width="158"
                  height="93"/>
             </div>
