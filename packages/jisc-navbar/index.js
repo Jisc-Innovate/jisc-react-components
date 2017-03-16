@@ -1,3 +1,3 @@
 'use strict'
 
-module.exports = require( "./lib/jisc-footer" )
+module.exports = require( "./lib/jisc-navbar" )
