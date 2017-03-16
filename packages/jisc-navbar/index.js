@@ -1,3 +1,6 @@
 'use strict'
 
-module.exports = require( "./lib/jisc-navbar" )
+module.exports = {
+  NavBar: require( "./lib/jisc-navbar" ),
+  NavBarTop: require( "./lib/jisc-navbar-top" ),
+}
