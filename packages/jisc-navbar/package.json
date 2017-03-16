@@ -1,6 +1,6 @@
 {
   "name": "jisc-navbar",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Jisc NavBar",
   "main": "index.js",
   "author": "Edoardo L'Astorina <edo@blufra.me>",
