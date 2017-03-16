@@ -6,7 +6,7 @@ const APP_DIR = path.join( __dirname, "src" )
 const config = {
   entry: {
     navbar: APP_DIR + "/NavBar.jsx",
-    "navbar-top": APP_DIR + "/NavBarTop.jsx"
+    "navbar-tab": APP_DIR + "/NavBarTab.jsx"
   },
 
   externals: {
