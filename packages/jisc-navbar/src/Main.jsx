@@ -1,9 +1,9 @@
 import React, { PropTypes } from "react"
 
-import NavBarPrimary from "./NavBarPrimary.jsx"
-import NavBarSecondary from "./NavBarSecondary.jsx"
+import Primary from "./Primary.jsx"
+import Secondary from "./Secondary.jsx"
 
-class NavBarMain extends React.Component {
+class Main extends React.Component {
   render( ) {
     const { title, renderTabs, primary, secondary } = this.props
 
@@ -15,11 +15,11 @@ class NavBarMain extends React.Component {
           </p>
 
           <div className="nav-wrapper">
-            <NavBarPrimary
+            <Primary
               tabs={primary}
               renderTabs={renderTabs} />
 
-            <NavBarSecondary
+            <Secondary
               tabs={secondary}
               renderTabs={renderTabs} />
           </div>
@@ -29,7 +29,7 @@ class NavBarMain extends React.Component {
   }
 }
 
-NavBarMain.propTypes = {
+Main.propTypes = {
   title: PropTypes.string.isRequired,
   renderTabs: PropTypes.func.isRequired,
 
@@ -48,4 +48,4 @@ NavBarMain.propTypes = {
   })).isRequired
 }
 
-export default NavBarMain
+export default Main

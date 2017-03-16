@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react"
 
-class NavBarSecondary extends React.Component {
+class Secondary extends React.Component {
   render( ) {
     const { renderTabs } = this.props,
           tabs = renderTabs( this.props.tabs )
@@ -20,7 +20,7 @@ class NavBarSecondary extends React.Component {
   }
 }
 
-NavBarSecondary.propTypes = {
+Secondary.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
@@ -31,4 +31,4 @@ NavBarSecondary.propTypes = {
   renderTabs: PropTypes.func.isRequired
 }
 
-export default NavBarSecondary
+export default Secondary

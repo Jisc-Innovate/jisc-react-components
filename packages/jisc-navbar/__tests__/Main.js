@@ -1,10 +1,10 @@
 import React from "react"
-import { mount, shallow, render } from "enzyme"
+import { mount, shallow } from "enzyme"
 import sinon from "sinon"
 
-import NavBarMain from "../src/NavBarMain.jsx"
-import NavBarPrimary from "../src/NavBarPrimary.jsx"
-import NavBarSecondary from "../src/NavBarSecondary.jsx"
+import Main from "../src/Main.jsx"
+import Primary from "../src/Primary.jsx"
+import Secondary from "../src/Secondary.jsx"
 
 const props = {
   title: "testTitle",
@@ -17,77 +17,77 @@ const props = {
   ]
 }
 
-describe( "NavBarMain", ( ) => {
+describe( "Main", ( ) => {
   it( "accepts props", ( ) => {
-    const navBarMain = mount( <NavBarMain
+    const main = mount( <Main
                                 title={props.title}
                                 renderTabs={props.renderTabs}
                                 primary={props.primary}
                                 secondary={props.secondary} /> )
 
-    expect( navBarMain.props( ).title ).toBe( props.title )
-    expect( navBarMain.props( ).renderTabs ).toBe( props.renderTabs )
-    expect( navBarMain.props( ).primary ).toBe( props.primary )
-    expect( navBarMain.props( ).secondary ).toBe( props.secondary )
+    expect( main.props( ).title ).toBe( props.title )
+    expect( main.props( ).renderTabs ).toBe( props.renderTabs )
+    expect( main.props( ).primary ).toBe( props.primary )
+    expect( main.props( ).secondary ).toBe( props.secondary )
   })
 
   it( "renders DOM elements", ( ) => {
-    const navBarMain = shallow( <NavBarMain
+    const main = shallow( <Main
                                   title={props.title}
                                   renderTabs={props.renderTabs}
                                   primary={props.primary}
                                   secondary={props.secondary} /> )
 
-    expect( navBarMain.find( "div" ).length ).toBe( 3 )
-    expect( navBarMain.find( "p" ).length ).toBe( 1 )
-    expect( navBarMain.find( NavBarPrimary ).length ).toBe( 1 )
-    expect( navBarMain.find( NavBarSecondary ).length ).toBe( 1 )
+    expect( main.find( "div" ).length ).toBe( 3 )
+    expect( main.find( "p" ).length ).toBe( 1 )
+    expect( main.find( Primary ).length ).toBe( 1 )
+    expect( main.find( Secondary ).length ).toBe( 1 )
   })
 
   it( "has expected classes", ( ) => {
-    const navBarMain = shallow( <NavBarMain
+    const main = shallow( <Main
                                   title={props.title}
                                   renderTabs={props.renderTabs}
                                   primary={props.primary}
                                   secondary={props.secondary} /> )
 
-    expect( navBarMain.find( "div" ).at( 0 ).hasClass( "masthead__main" ) )
+    expect( main.find( "div" ).at( 0 ).hasClass( "masthead__main" ) )
       .toBe( true )
-    expect( navBarMain.find( "div" ).at( 0 )
+    expect( main.find( "div" ).at( 0 )
       .hasClass( "masthead__main--with-content" ) ).toBe( true )
-    expect( navBarMain.find( "div" ).at( 1 ).hasClass( "inner" ) ).toBe( true )
-    expect( navBarMain.find( "div" ).at( 2 ).hasClass( "nav-wrapper" ) )
+    expect( main.find( "div" ).at( 1 ).hasClass( "inner" ) ).toBe( true )
+    expect( main.find( "div" ).at( 2 ).hasClass( "nav-wrapper" ) )
       .toBe( true )
-    expect( navBarMain.find( "p" ).hasClass( "masthead__title" ) )
+    expect( main.find( "p" ).hasClass( "masthead__title" ) )
       .toBe( true )
-    expect( navBarMain.find( "p" ).hasClass( "masthead__title--short" ) )
+    expect( main.find( "p" ).hasClass( "masthead__title--short" ) )
       .toBe( true )
   })
 
   it( "displays title from props", ( ) => {
-    const navBarMain = mount( <NavBarMain
+    const main = mount( <Main
                                 title={props.title}
                                 renderTabs={props.renderTabs}
                                 primary={props.primary}
                                 secondary={props.secondary} /> )
 
-    expect( navBarMain.find( "p" ).text( ) ).toBe( props.title )
+    expect( main.find( "p" ).text( ) ).toBe( props.title )
   })
 
   it( "passes expected props to components", ( ) => {
-    const navBarMain = shallow( <NavBarMain
+    const main = shallow( <Main
                                   title={props.title}
                                   renderTabs={props.renderTabs}
                                   primary={props.primary}
                                   secondary={props.secondary} /> )
 
-    expect( navBarMain.find( NavBarPrimary ).prop( "tabs" ) )
+    expect( main.find( Primary ).prop( "tabs" ) )
       .toBe( props.primary )
-    expect( navBarMain.find( NavBarPrimary ).prop( "renderTabs" ) )
+    expect( main.find( Primary ).prop( "renderTabs" ) )
       .toBe( props.renderTabs )
-    expect( navBarMain.find( NavBarSecondary ).prop( "tabs" ) )
+    expect( main.find( Secondary ).prop( "tabs" ) )
       .toBe( props.secondary )
-    expect( navBarMain.find( NavBarSecondary ).prop( "renderTabs" ) )
+    expect( main.find( Secondary ).prop( "renderTabs" ) )
       .toBe( props.renderTabs )
   })
 })
