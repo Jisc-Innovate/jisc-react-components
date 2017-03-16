@@ -64,6 +64,13 @@ NavBar.propTypes = {
   })),
 
   focussed: PropTypes.bool,
+  focussedTitle: PropTypes.string,
+
+  focussedItems: PropTypes.arrayOf(PropTypes.shape({
+    link: PropTypes.string,
+    name: PropTypes.string.isRequired
+  }).isRequired),
+  
   renderTabs: PropTypes.func,
 }
 

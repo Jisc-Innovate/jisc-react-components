@@ -4,7 +4,7 @@ class TopFocussed extends React.Component {
   renderItems( ) {
     const { items } = this.props
 
-    items
+    return items
       .map( ( item, i ) => {
         const { link, name } = this.props
 
@@ -25,8 +25,8 @@ class TopFocussed extends React.Component {
 
     return(
       <div>
-        <div id="nav" className="title-nav" data-dropdown="">
-          <div className="has-popup masthead__nav__item" data-dropdown-item="">
+        <div id="nav" className="title-nav" data-dropdown>
+          <div className="has-popup masthead__nav__item" data-dropdown-item>
             <h1 className="masthead__title masthead__title--long">
               <a href="/">
                 {title}
