@@ -4,9 +4,10 @@ import path from "path"
 const APP_DIR = path.join( __dirname, "src" )
 
 const config = {
-  entry: [
-    APP_DIR + "/NavBar.jsx"
-  ],
+  entry: {
+    navbar: APP_DIR + "/NavBar.jsx",
+    "navbar-top": APP_DIR + "/NavBarTop.jsx"
+  },
 
   externals: {
     react: {
@@ -30,7 +31,7 @@ const config = {
 
   output: {
     path: path.join( __dirname, "lib" ),
-    filename: "jisc-navbar.js",
+    filename: "jisc-[name].js",
     libraryTarget: "umd"
   },
 
