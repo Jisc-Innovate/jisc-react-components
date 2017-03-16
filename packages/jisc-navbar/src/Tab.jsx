@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 import { Link } from "react-router"
 
-class NavBarTab extends React.Component {
+class Tab extends React.Component {
   render( ) {
     const { name, link, active, hide } = this.props
 
@@ -15,11 +15,11 @@ class NavBarTab extends React.Component {
   }
 }
 
-NavBarTab.propTypes = {
+Tab.propTypes = {
   name: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
   active: PropTypes.string.isRequired,
   hide: PropTypes.string.isRequired
 }
 
-export default NavBarTab
+export default Tab

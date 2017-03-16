@@ -1,8 +1,8 @@
 import React, { PropTypes } from "react"
 
-import NavBarTop from "./NavBarTop.jsx"
-import NavBarMain from "./NavBarMain.jsx"
-import NavBarTab from "./NavBarTab.jsx"
+import Top from "./Top.jsx"
+import Main from "./Main.jsx"
+import Tab from "./Tab.jsx"
 
 class NavBar extends React.Component {
   renderTabs( tabs ) {
@@ -13,7 +13,7 @@ class NavBar extends React.Component {
                     hide = tab.show ? "" : "js-hide"
 
               return(
-                <NavBarTab
+                <Tab
                   name={name}
                   link={link}
                   active={active}
@@ -22,17 +22,21 @@ class NavBar extends React.Component {
               )
             })
   }
-  
+
   render( ) {
-    const { title, primary, secondary, focussed, renderTabs } = this.props,
+    const { title, primary, secondary, focussed, focussedTitle, focussedItems,
+            renderTabs } = this.props,
           className = focussed ? "masthead--focussed" : "masthead"
 
     return(
       <header className={`${className}`} role="banner" data-mobilemenu>
-        <NavBarTop />
+        <Top
+          focussed={focussed}
+          focussedTitle={focussedTitle}
+          focussedItems={focussedItems} />
 
         { !focussed &&
-          <NavBarMain
+          <Main
             title={title}
             primary={primary}
             secondary={secondary}
