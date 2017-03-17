@@ -48,7 +48,7 @@ class NavBar extends React.Component {
 }
 
 NavBar.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 
   primary: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -70,7 +70,7 @@ NavBar.propTypes = {
     link: PropTypes.string,
     name: PropTypes.string.isRequired
   }).isRequired),
-  
+
   renderTabs: PropTypes.func,
 }
 
