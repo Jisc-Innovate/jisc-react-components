@@ -1,6 +1,8 @@
 import webpack from "webpack"
 import path from "path"
 
+import ExtractTextPlugin from "extract-text-webpack-plugin"
+
 const APP_DIR = path.join( __dirname, "src" )
 
 const config = {
@@ -36,12 +38,14 @@ const config = {
       {
         test: /\.scss?$/,
         include: path.resolve( __dirname, "src" ),
-        use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" },
-          { loader: "postcss-loader" },
-          { loader: "sass-loader" }
-        ]
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            "css-loader",
+            "postcss-loader",
+            "sass-loader"
+          ]
+        })
       }
     ]
   },
@@ -49,7 +53,9 @@ const config = {
   plugins: [
     new webpack.NoEmitOnErrorsPlugin( ),
 
-    new webpack.optimize.UglifyJsPlugin( )
+    new webpack.optimize.UglifyJsPlugin( ),
+
+    new ExtractTextPlugin( "jisc-form-input-text.css" )
   ]
 }
 
