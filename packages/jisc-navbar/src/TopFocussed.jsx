@@ -1,27 +1,10 @@
 import React, { PropTypes } from "react"
 
+import TopFocussedItems from "./TopFocussedItems"
+
 class TopFocussed extends React.Component {
-  renderItems( ) {
-    const { items } = this.props
-
-    return items
-      .map( ( item, i ) => {
-        const { link, name } = this.props
-
-        return(
-          <li
-            key={i}
-            className="masthead__nav__item">
-              <a href={`${link}`}>
-                {name}
-              </a>
-          </li>
-        )
-      })
-  }
-
   render( ) {
-    const { title } = this.props
+    const { title, items } = this.props
 
     return(
       <div>
@@ -39,9 +22,8 @@ class TopFocussed extends React.Component {
           className="masthead__nav masthead__nav--primary"
           role="navigation"
           data-dropdown>
-            <ul>
-              {this.renderItems( )}
-            </ul>
+            <TopFocussedItems
+              items={items} />
         </nav>
       </div>
     )
