@@ -1,0 +1,32 @@
+.form-input-text {
+  span.icon.icon-close {
+    opacity: 0;
+    margin-left: 5px;
+  }
+
+  span.icon.icon-close:hover,
+  input:hover + span.icon.icon-close,
+  input:focus + span.icon.icon-close {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+
+  .form-fields {
+    &__label-text {
+      &--above {
+        float: none;
+        width: 100%;
+        text-align: left;
+      }
+    }
+  }
+
+  input {
+    &[type=text] {
+      padding: 4px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+}
