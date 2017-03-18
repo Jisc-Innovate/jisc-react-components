@@ -1,6 +1,6 @@
 import React from "react"
 import sinon from "sinon"
-import { shallow, mount, render } from "enzyme"
+import { shallow, mount } from "enzyme"
 import FormInputText from "../src/FormInputText.jsx"
 
 const props = {
@@ -40,7 +40,7 @@ describe( "FormInputText", ( ) => {
   })
 
   it( "renders DOM elements", ( ) => {
-    const input = render( <FormInputText
+    const input = shallow( <FormInputText
                              label={props.label}
                              name={props.name}
                              placeholder={props.placeholder}
@@ -52,8 +52,30 @@ describe( "FormInputText", ( ) => {
     expect( input.find( "input" ).length ).toBe( 1 )
   })
 
+  it( "has expected classes", ( ) => {
+    const input = shallow( <FormInputText
+                             label={props.label}
+                             name={props.name}
+                             placeholder={props.placeholder}
+                             required={props.required} /> )
+
+    expect( input.find( "li" ).hasClass( "form-input-text" ) ).toBe( true )
+    expect( input.find( "li" ).hasClass( "form-fields__item--text" ) )
+      .toBe( true )
+    expect( input.find( "div" ).hasClass( "form-fields__label-text" ) )
+      .toBe( true )
+    expect( input.find( "input" ).hasClass( "input--large" ) ).toBe( true )
+
+    input.setProps( { labelAbove: props.labelAbove } )
+
+    expect( input.find( "div" ).hasClass( "form-fields__label-text--above" ) )
+      .toBe( true )
+    expect( input.find( "input" ).hasClass( "input--large--label-above" ) )
+      .toBe( true )
+  })
+
   it( "renders a clear icon when clearIcon is true", ( ) => {
-    const input = render( <FormInputText
+    const input = shallow( <FormInputText
                            label={props.label}
                            name={props.name}
                            placeholder={props.placeholder}
@@ -64,7 +86,7 @@ describe( "FormInputText", ( ) => {
   })
 
   it( "doesn't render a clear icon when clearIcon is false", ( ) => {
-    const input = render( <FormInputText
+    const input = shallow( <FormInputText
                            label={props.label}
                            name={props.name}
                            placeholder={props.placeholder}
@@ -96,7 +118,7 @@ describe( "FormInputText", ( ) => {
   })
 
   it( "shows label", ( ) => {
-    const input = render( <FormInputText
+    const input = shallow( <FormInputText
                              label={props.label}
                              name={props.name}
                              placeholder={props.placeholder}
