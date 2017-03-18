@@ -6,7 +6,8 @@ class FormInputText extends React.Component {
   render( ) {
     const { label, name, value, placeholder, onChange,
             clearIcon, required, labelAbove, onClear } = this.props,
-          labelClass = labelAbove ? "form-fields__label-text--above" : ""
+          labelClass = labelAbove ? "form-fields__label-text--above" : "",
+          inputClass = labelAbove ? "input--large--label-above" : ""
 
     return(
       <li className="form-input-text form-fields__item--text">
@@ -17,7 +18,7 @@ class FormInputText extends React.Component {
           </div>
 
           <input
-            className="input--large"
+            className={`input--large ${inputClass}`}
             name={name}
             value={value}
             type="text"
