@@ -1,6 +1,6 @@
 {
   "name": "jisc-form-input-text",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Jisc Form Input Text",
   "main": "index.js",
   "author": "Edoardo L'Astorina <edo@blufra.me>",
