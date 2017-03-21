@@ -1,9 +1,24 @@
-import React, { PropTypes } from "react"
+// @flow
+
+import React from "react"
 
 import Primary from "./Primary.jsx"
 import Secondary from "./Secondary.jsx"
 
+import {TabType} from "types/Tab"
+
+type Props = {
+  title: string,
+  renderTabs: ( ) => void,
+
+  primary: Array<TabType>,
+
+  secondary: Array<TabType>
+}
+
 class Main extends React.Component {
+  props: Props;
+
   render( ) {
     const { title, renderTabs, primary, secondary } = this.props
 
@@ -30,22 +45,6 @@ class Main extends React.Component {
 }
 
 Main.propTypes = {
-  title: PropTypes.string.isRequired,
-  renderTabs: PropTypes.func.isRequired,
-
-  primary: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    active: PropTypes.bool.isRequired,
-    show: PropTypes.bool
-  })).isRequired,
-
-  secondary: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    active: PropTypes.bool.isRequired,
-    show: PropTypes.bool
-  })).isRequired
 }
 
 export default Main

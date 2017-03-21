@@ -1,6 +1,17 @@
-import React, { PropTypes } from "react"
+// @flow
+
+import React from "react"
+
+import {TabType} from "types/Tab"
+
+type Props = {
+  tabs: Array<TabType>,
+  renderTabs: ( ) => void
+}
 
 class Primary extends React.Component {
+  props: Props;
+
   render( ) {
     const { renderTabs } = this.props,
           tabs = renderTabs( this.props.tabs )
@@ -18,17 +29,6 @@ class Primary extends React.Component {
       </nav>
     )
   }
-}
-
-Primary.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    active: PropTypes.bool.isRequired,
-    show: PropTypes.bool
-  })).isRequired,
-
-  renderTabs: PropTypes.func.isRequired
 }
 
 export default Primary

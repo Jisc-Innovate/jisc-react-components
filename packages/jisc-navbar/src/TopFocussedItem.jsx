@@ -1,6 +1,12 @@
-import React, { PropTypes } from "react"
+// @flow
+
+import React from "react"
+
+import {FocussedItem} from "types/Item"
 
 class Item extends React.Component {
+  props: FocussedItem;
+
   render( ) {
     const { link, name } = this.props
 
@@ -13,11 +19,6 @@ class Item extends React.Component {
       </li>
     )
   }
-}
-
-Item.propTypes = {
-  link: PropTypes.string,
-  name: PropTypes.string.isRequired
 }
 
 export default Item
