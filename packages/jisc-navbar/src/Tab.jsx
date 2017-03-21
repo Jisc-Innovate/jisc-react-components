@@ -1,7 +1,13 @@
-import React, { PropTypes } from "react"
+// @flow
+
+import React from "react"
 import { Link } from "react-router"
 
+import {TabType} from "types/Tab"
+
 class Tab extends React.Component {
+  props: TabType;
+
   render( ) {
     const { name, link, active, hide } = this.props
 
@@ -13,13 +19,6 @@ class Tab extends React.Component {
       </li>
     )
   }
-}
-
-Tab.propTypes = {
-  name: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-  active: PropTypes.string.isRequired,
-  hide: PropTypes.string.isRequired
 }
 
 export default Tab

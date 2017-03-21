@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
+    "babel-eslint": "^7.2.0",
     "babel-jest": "^19.0.0",
     "babel-loader": "^6.4.0",
     "babel-plugin-transform-assets": "^0.2.0",
@@ -37,11 +38,12 @@
   },
   "jest": {
     "transform": {
-      ".(js|jsx)": "<rootDir>/node_modules/babel-jest"
+      ".(js|jsx)": "babel-jest"
     },
     "moduleFileExtensions": [
       "js",
       "jsx"
-    ]
+    ],
+    "moduleDirectories": ["node_modules", "src"]
   }
 }

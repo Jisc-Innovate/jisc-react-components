@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react"
 
 class NavBarTopDefault extends React.Component {

@@ -1,11 +1,15 @@
+// @flow
+
 import React, { PropTypes } from "react"
 
-import Top from "./Top.jsx"
-import Main from "./Main.jsx"
-import Tab from "./Tab.jsx"
+import Top from "Top"
+import Main from "Main"
+import Tab from "Tab"
+
+import {TabType} from "types/Tab"
 
 class NavBar extends React.Component {
-  renderTabs( tabs ) {
+  renderTabs( tabs: Array<TabType> ) {
     return tabs
             .map( ( tab, i ) => {
               const { name, link } = tab,

@@ -1,8 +1,18 @@
-import React, { PropTypes } from "react"
+// @flow
 
-import TopFocussedItem from "./TopFocussedItem"
+import React from "react"
+
+import TopFocussedItem from "TopFocussedItem"
+
+import {FocussedItem} from "types/Item"
+
+type Props = {
+  items: Array<FocussedItem>
+}
 
 class Items extends React.Component {
+  props: Props;
+
   render( ) {
     const { items } = this.props
 
@@ -23,13 +33,6 @@ class Items extends React.Component {
       </ul>
     )
   }
-}
-
-Items.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    link: PropTypes.string,
-    name: PropTypes.string.isRequired
-  }).isRequired)
 }
 
 export default Items

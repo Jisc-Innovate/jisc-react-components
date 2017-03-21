@@ -1,8 +1,8 @@
-import React from "react"
+import React from "react"  // eslint-disable-line no-unused-vars
 import { mount, shallow } from "enzyme"
 import sinon from "sinon"
 
-import Secondary from "../src/Secondary.jsx"
+import Secondary from "Secondary"
 
 const props = {
   tabs: [
