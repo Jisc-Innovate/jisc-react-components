@@ -1,6 +1,6 @@
 {
   "name": "jisc-form-dropdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Jisc Form Dropdown",
   "main": "index.js",
   "author": "Edoardo L'Astorina <edo@blufra.me>",
