@@ -1,11 +1,23 @@
-import React, { PropTypes } from "react"
+// @flow
+
+import React from "react"
 import { Link } from "react-router"
 import image from "url-loader!./logo.png"
 
-import TopDefault from "./TopDefault.jsx"
-import TopFocussed from "./TopFocussed.jsx"
+import TopDefault from "TopDefault"
+import TopFocussed from "TopFocussed"
+
+import {FocussedItem} from "types/Item"
+
+type Props = {
+  focussed: ?bool,
+  focussedTitle: string,
+  focussedItems: Array<FocussedItem>
+}
 
 class Top extends React.Component {
+  props: Props;
+
   render( ) {
     const { focussed, focussedTitle, focussedItems } = this.props
 
@@ -30,13 +42,6 @@ class Top extends React.Component {
 }
 
 Top.propTypes = {
-  focussed: PropTypes.bool,
-  focussedTitle: PropTypes.string,
-
-  focussedItems: PropTypes.arrayOf(PropTypes.shape({
-    link: PropTypes.string,
-    name: PropTypes.string.isRequired
-  }).isRequired)
 }
 
 export default Top

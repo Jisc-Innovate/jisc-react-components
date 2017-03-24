@@ -1,6 +1,32 @@
-import React, { PropTypes } from "react"
+// @flow
+
+import React from "react"
+
+type Option = {
+  name: string,
+  value: string,
+  group: ?string,
+  order: ?number
+}
+
+type Group = {
+  name: string
+}
+
+type Props = {
+  label: ?string,
+  options: Array<Option>,
+  groups: Array<Group>,
+  required: ?bool,
+  grouped: ?bool,
+  defaultValue: ?string,
+  selectedOption: string,
+  onChange: ?( ) => void
+}
 
 class FormDropDown extends React.Component {
+  props: Props;
+
   getLabel( ) {
     const { options, defaultValue, selectedOption } = this.props
 
@@ -11,12 +37,12 @@ class FormDropDown extends React.Component {
     return option[ 0 ].name
   }
 
-  renderGroupedOptions( groupName ) {
+  renderGroupedOptions( groupName: string ) {
     const { options } = this.props
 
     return options
       .filter( option => option.group === groupName )
-      .sort( ( a,b ) => a.order - b.order )
+      .sort( ( a,b ) => a.order && b.order ? a.order - b.order : 1 )
       .map( option => {
         return(
           <option
@@ -107,22 +133,6 @@ class FormDropDown extends React.Component {
       </li>
     )
   }
-}
-
-FormDropDown.propTypes = {
-  label: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
-  }).isRequired).isRequired,
-  groups: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired
-  }).isRequired),
-  required: PropTypes.bool,
-  grouped: PropTypes.bool,
-  defaultValue: PropTypes.string,
-  selectedOption: PropTypes.string.isRequired,
-  onChange: PropTypes.func
 }
 
 export default FormDropDown

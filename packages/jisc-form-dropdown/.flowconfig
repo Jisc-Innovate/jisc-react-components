@@ -1,0 +1,7 @@
+[options]
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=src
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/CSSFlowStub.js.flow'
+
+[ignore]
+.*/node_modules/stylelint.*

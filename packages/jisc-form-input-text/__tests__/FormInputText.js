@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react"  // eslint-disable-line no-unused-vars
 import sinon from "sinon"
 import { shallow, mount } from "enzyme"
 import FormInputText from "../src/FormInputText.jsx"
@@ -48,7 +48,7 @@ describe( "FormInputText", ( ) => {
 
     expect( input.find( "li" ).length ).toBe( 1 )
     expect( input.find( "label" ).length ).toBe( 1 )
-    expect( input.find( "div" ).length ).toBe( 1 )
+    expect( input.find( "div" ).length ).toBe( 2 )
     expect( input.find( "input" ).length ).toBe( 1 )
   })
 
@@ -62,30 +62,32 @@ describe( "FormInputText", ( ) => {
     expect( input.find( "li" ).hasClass( "form-input-text" ) ).toBe( true )
     expect( input.find( "li" ).hasClass( "form-fields__item--text" ) )
       .toBe( true )
-    expect( input.find( "div" ).hasClass( "form-fields__label-text" ) )
+    expect( input.find( "div" ).at( 0 ).hasClass( "form-fields__label-text" ) )
       .toBe( true )
+    expect( input.find( "div" ).at( 1 )
+      .hasClass( "form-input-text__container" ) ).toBe( true )
     expect( input.find( "input" ).hasClass( "input--large" ) ).toBe( true )
 
     input.setProps( { labelAbove: props.labelAbove } )
 
-    expect( input.find( "div" ).hasClass( "form-fields__label-text--above" ) )
+    expect( input.find( "div" ).at( 0 ).hasClass( "form-fields__label-text--above" ) )
       .toBe( true )
     expect( input.find( "input" ).hasClass( "input--large--label-above" ) )
       .toBe( true )
   })
 
-  it( "renders a clear icon when clearIcon is true", ( ) => {
+  it( "renders an outer clear icon when clearIcon is true", ( ) => {
     const input = shallow( <FormInputText
                            label={props.label}
                            name={props.name}
                            placeholder={props.placeholder}
                            required={props.required}
-                           clearIcon={true} /> )
+                           clearIcon /> )
 
-    expect( input.find( "span.icon.icon-close" ).length ).toBe( 1 )
+    expect( input.find( "span.icon.icon--outer.icon-close" ).length ).toBe( 1 )
   })
 
-  it( "doesn't render a clear icon when clearIcon is false", ( ) => {
+  it( "doesn't render an outer clear icon when clearIcon is false", ( ) => {
     const input = shallow( <FormInputText
                            label={props.label}
                            name={props.name}
@@ -93,7 +95,33 @@ describe( "FormInputText", ( ) => {
                            required={props.required}
                            clearIcon={props.clearIcon} /> )
 
-    expect( input.find( "span.icon.icon-close" ).length ).toBe( 0 )
+    expect( input.find( "span.icon.icon--outer.icon-close" ).length ).toBe( 0 )
+  })
+
+  it( "renders an inner clear icon when clearIcon and labelAbove are true",
+   ( ) => {
+    const input = shallow( <FormInputText
+                           label={props.label}
+                           name={props.name}
+                           placeholder={props.placeholder}
+                           required={props.required}
+                           clearIcon
+                           labelAbove /> )
+
+    expect( input.find( "span.icon.icon--inner.icon-close" ).length ).toBe( 1 )
+  })
+
+  it( `doesn't render an inner clear icon when clearIcon is true and label above
+       is false`, ( ) => {
+    const input = shallow( <FormInputText
+                           label={props.label}
+                           name={props.name}
+                           placeholder={props.placeholder}
+                           required={props.required}
+                           clearIcon
+                           labelAbove={false} /> )
+
+    expect( input.find( "span.icon.icon--inner.icon-close" ).length ).toBe( 0 )
   })
 
   it( "has type text", ( ) => {
@@ -124,7 +152,7 @@ describe( "FormInputText", ( ) => {
                              placeholder={props.placeholder}
                              required={props.required} /> )
 
-    expect( input.find( "div" ).text( ) ).toBe( props.label )
+    expect( input.find( "div" ).at( 0 ).text( ) ).toBe( props.label )
   })
 
   it( "handles text change", ( ) => {
@@ -140,17 +168,32 @@ describe( "FormInputText", ( ) => {
     expect( props.onChange.callCount ).toBe( 1 )
   })
 
-  it( "handles a click on clear icon", ( ) => {
+  it( "handles a click on outer clear icon", ( ) => {
     const input = mount( <FormInputText
                           label={props.label}
                           name={props.name}
                           placeholder={props.placeholder}
                           required={props.required}
-                          clearIcon={true}
+                          clearIcon
                           onClear={props.onClear} /> )
 
-    input.find( "span.icon.icon-close" ).simulate( "click" )
+    input.find( "span.icon.icon--outer.icon-close" ).simulate( "click" )
 
     expect( props.onClear.callCount ).toBe( 1 )
+  })
+
+  it( "handles a click on inner clear icon", ( ) => {
+    const input = mount( <FormInputText
+                          label={props.label}
+                          name={props.name}
+                          placeholder={props.placeholder}
+                          required={props.required}
+                          clearIcon
+                          labelAbove={props.labelAbove}
+                          onClear={props.onClear} /> )
+
+    input.find( "span.icon.icon--inner.icon-close" ).simulate( "click" )
+
+    expect( props.onClear.callCount ).toBe( 2 )
   })
 })

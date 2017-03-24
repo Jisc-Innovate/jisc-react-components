@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react" // eslint-disable-line no-unused-vars
 import sinon from "sinon"
 import { shallow, mount } from "enzyme"
 import FormDropDown from "../src/FormDropDown.jsx"
