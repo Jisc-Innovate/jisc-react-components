@@ -1,13 +1,32 @@
-import React, { PropTypes } from "react"
+// @flow
+
+import React from "react"
 
 import "./FormInputText.scss"
 
+type Props = {
+  label: string,
+  name: string,
+  value: ?string,
+  placeholder: string,
+  required: bool,
+  labelAbove: ?bool,
+  clearIcon: ?bool,
+  onClear: ?( ) => void,
+  onChange: ?( ) => void
+}
+
 class FormInputText extends React.Component {
+  props: Props;
+
   render( ) {
-    const { label, name, value, placeholder, onChange,
-            clearIcon, required, labelAbove, onClear } = this.props,
+    const { label, name, value, placeholder, onChange, clearIcon,
+            required, labelAbove, onClear } = this.props,
           labelClass = labelAbove ? "form-fields__label-text--above" : "",
-          inputClass = labelAbove ? "input--large--label-above" : ""
+          inputClass = labelAbove ? clearIcon ?
+            "input--large--label-above input--large--clear-icon"
+            : "input--large--label-above" : "",
+          clearIconClass = labelAbove ? "icon--inner" : "icon--outer"
 
     return(
       <li className="form-input-text form-fields__item--text">
@@ -17,37 +36,27 @@ class FormInputText extends React.Component {
             {label}
           </div>
 
-          <input
-            className={`input--large ${inputClass}`}
-            name={name}
-            value={value}
-            type="text"
-            placeholder={placeholder}
-            onChange={onChange}
-            required={required} />
+          <div className="form-input-text__container">
+            <input
+              className={`input--large ${inputClass}`}
+              name={name}
+              value={value}
+              type="text"
+              placeholder={placeholder}
+              onChange={onChange}
+              required={required} />
 
-          { clearIcon === true ?
-            <span
-              className="icon icon-close"
-              onClick={onClear}>
-            </span>
-            : null }
+            { clearIcon &&
+              <span
+                className={`icon ${clearIconClass} icon-close`}
+                onClick={onClear}>
+              </span>
+            }
+          </div>
         </label>
       </li>
     )
   }
-}
-
-FormInputText.propTypes = {
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string,
-  placeholder: PropTypes.string.isRequired,
-  required: PropTypes.bool.isRequired,
-  labelAbove: PropTypes.bool,
-  clearIcon: PropTypes.bool,
-  onClear: PropTypes.func,
-  onChange: PropTypes.func
 }
 
 export default FormInputText

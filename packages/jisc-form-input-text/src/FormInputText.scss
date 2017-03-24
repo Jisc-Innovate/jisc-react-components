@@ -1,12 +1,50 @@
 .form-input-text {
-  span.icon.icon-close {
+  input {
+    &[type=text] {
+      &.input--large {
+        &--label-above {
+          padding: 4px;
+          width: 100%;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+
+  input {
+    &[type=text] {
+      &.input--large {
+        &--clear-icon {
+          padding-right: 33px;
+        }
+      }
+    }
+  }
+
+  &__container {
+    position: relative;
+    padding: 0;
+    margin: 0;
+
+    .icon {
+      &--inner {
+        margin-left: 0;
+        opacity: 1;
+        position: absolute;
+        top: 7px;
+        right: 10px;
+      }
+    }
+  }
+
+  span.icon.icon--outer.icon-close {
     opacity: 0;
     margin-left: 5px;
   }
 
-  span.icon.icon-close:hover,
-  input:hover + span.icon.icon-close,
-  input:focus + span.icon.icon-close {
+  span.icon.icon--outer.icon-close:hover,
+  input:hover + span.icon.icon--outer.icon-close,
+  input:focus + span.icon.icon--outer.icon-close {
     opacity: 1;
     cursor: pointer;
   }
@@ -18,18 +56,6 @@
         float: none;
         width: 100%;
         text-align: left;
-      }
-    }
-  }
-
-  input {
-    &[type=text] {
-      &.input--large {
-        &--label-above {
-          padding: 4px;
-          width: 100%;
-          box-sizing: border-box;
-        }
       }
     }
   }
