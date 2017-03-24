@@ -46,6 +46,18 @@ storiesOf("FormInputText", module)
         />
     </ul>
   ))
+  .add("clear icon", () => (
+    <ul className="form-fields">
+      <FormInputText
+        label="Name"
+        name="name"
+        required={false}
+        clearIcon
+        placeholder="Enter your name"
+        onClear={action( "cleared" )}
+        />
+    </ul>
+  ))
   .add("label above", () => (
     <ul className="form-fields">
       <FormInputText
@@ -55,6 +67,19 @@ storiesOf("FormInputText", module)
         labelAbove
         placeholder="Enter your name"
         onChange={action( "changed" )}
+        />
+    </ul>
+  ))
+  .add("label above and clear icon", () => (
+    <ul className="form-fields">
+      <FormInputText
+        label="Name"
+        name="name"
+        required={false}
+        labelAbove
+        clearIcon
+        placeholder="Enter your name"
+        onClear={action( "cleared" )}
         />
     </ul>
   ))
