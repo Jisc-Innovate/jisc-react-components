@@ -5,8 +5,7 @@ import Welcome from "./Welcome"
 import ButtonPrimary from "../packages/jisc-button-primary"
 import Footer from "../packages/jisc-footer"
 import FormInputText from "../packages/jisc-form-input-text"
-
-import "../packages/jisc-form-input-text/lib/jisc-form-input-text.css"
+import TeaserArrow from "../packages/jisc-teaser-arrow"
 
 storiesOf("Welcome", module)
   .add("to Storybook", () => (
@@ -18,6 +17,15 @@ storiesOf("ButtonPrimary", module)
     <ButtonPrimary
       onClick={action("clicked")}
       text="Hello Button"
+      />
+  ))
+
+storiesOf("TeaserArrow", module)
+  .add("with text", () => (
+    <TeaserArrow
+      title="Hello Teaser Arrow"
+      description="This is an awesome teaser arrow with amazing features"
+      url="http://jisc.ac.uk"
       />
   ))
 

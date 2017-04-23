@@ -1,62 +1,66 @@
 // @flow
 
+import ClearIcon from "./ClearIcon"
+import {Container} from "./styled"
+import Input from "./Input"
+import Label from "./Label"
 import React from "react"
-
-import "./FormInputText.scss"
 
 type Props = {
   label: string,
   name: string,
   value: ?string,
   placeholder: string,
-  required: bool,
-  labelAbove: ?bool,
-  clearIcon: ?bool,
-  onClear: ?( ) => void,
-  onChange: ?( ) => void
+  required: boolean,
+  labelAbove: ?boolean,
+  clearIcon: ?boolean,
+  onClear: ?() => void,
+  onChange: ?() => void
 }
 
-class FormInputText extends React.Component {
-  props: Props;
+const FormInputText = function FormInputText ({
+  label,
+  name,
+  value,
+  placeholder,
+  onChange,
+  clearIcon,
+  required,
+  labelAbove,
+  onClear
+}: Props) {
 
-  render( ) {
-    const { label, name, value, placeholder, onChange, clearIcon,
-            required, labelAbove, onClear } = this.props,
-          labelClass = labelAbove ? "form-fields__label-text--above" : "",
-          inputClass = labelAbove ? clearIcon ?
-            "input--large--label-above input--large--clear-icon"
-            : "input--large--label-above" : "",
-          clearIconClass = labelAbove ? "icon--inner" : "icon--outer"
+  return (
+    <li className="form-input-text form-fields__item--text">
+      <label>
 
-    return(
-      <li className="form-input-text form-fields__item--text">
-        <label>
+        <Label
+          above={labelAbove}
+          label={label}
+        />
 
-          <div className={`form-fields__label-text ${labelClass}`}>
-            {label}
-          </div>
+        <Container className="form-input-text__container">
+          <Input
+            clearIcon={clearIcon}
+            labelAbove={labelAbove}
+            name={name}
+            onChange={onChange}
+            placeholder={placeholder}
+            required={required}
+            type="text"
+            value={value}
+          />
 
-          <div className="form-input-text__container">
-            <input
-              className={`input--large ${inputClass}`}
-              name={name}
-              value={value}
-              type="text"
-              placeholder={placeholder}
-              onChange={onChange}
-              required={required} />
+          <ClearIcon
+            above={labelAbove}
+            clearIcon={clearIcon}
+            onClear={onClear}
+          />
+        </Container>
+      </label>
+    </li>
+  )
 
-            { clearIcon &&
-              <span
-                className={`icon ${clearIconClass} icon-close`}
-                onClick={onClear}>
-              </span>
-            }
-          </div>
-        </label>
-      </li>
-    )
-  }
 }
 
 export default FormInputText

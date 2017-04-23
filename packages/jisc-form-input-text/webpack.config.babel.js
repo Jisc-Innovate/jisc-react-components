@@ -1,29 +1,30 @@
-import webpack from "webpack"
-import path from "path"
+/* eslint-disable sort-keys */
 
 import ExtractTextPlugin from "extract-text-webpack-plugin"
+import path from "path"
+import webpack from "webpack"
 
-const APP_DIR = path.join( __dirname, "src" )
+const APP_DIR = path.join(__dirname, "src")
 
 const config = {
-  entry: APP_DIR + "/FormInputText.jsx",
+  entry: `${APP_DIR}/FormInputText.jsx`,
 
   externals: {
     react: {
-      root: "React",
-      commonjs2: "react",
+      amd: "react",
       commonjs: "react",
-      amd: "react"
+      commonjs2: "react",
+      root: "React"
     }
   },
 
   resolve: {
-    extensions: [ ".js", ".jsx" ],
-    modules: [ path.resolve(__dirname, "src"), "node_modules" ]
+    extensions: [".js", ".jsx"],
+    modules: [path.resolve(__dirname, "src"), "node_modules"]
   },
 
   output: {
-    path: path.join( __dirname, "lib" ),
+    path: path.join(__dirname, "lib"),
     filename: "jisc-form-input-text.js",
     libraryTarget: "umd"
   },
@@ -37,7 +38,7 @@ const config = {
       },
       {
         test: /\.scss?$/,
-        include: path.resolve( __dirname, "src" ),
+        include: path.resolve(__dirname, "src"),
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: [
@@ -51,11 +52,11 @@ const config = {
   },
 
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin( ),
+    new webpack.NoEmitOnErrorsPlugin(),
 
-    new webpack.optimize.UglifyJsPlugin( ),
+    new webpack.optimize.UglifyJsPlugin(),
 
-    new ExtractTextPlugin( "jisc-form-input-text.css" )
+    new ExtractTextPlugin("jisc-form-input-text.css")
   ]
 }
 
