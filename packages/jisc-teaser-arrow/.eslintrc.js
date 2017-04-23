@@ -12,7 +12,8 @@ module.exports = {
     },
     "extends": [
       "eslint:all",
-      "plugin:react/all"
+      "plugin:react/all",
+      "plugin:flowtype/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -22,7 +23,8 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "flowtype"
     ],
     "rules": {
         "no-unused-vars": 1,

@@ -1,11 +1,13 @@
 // @flow
 
+import Arrow from "./Arrow"
+import Copy from "./Copy"
 import React from "react"
 
 type Props = {
   title: string,
   description: string,
-  url: string
+  url?: string
 }
 
 const TeaserArrow = function TeaserArrow ({
@@ -17,30 +19,22 @@ const TeaserArrow = function TeaserArrow ({
   return (
     <article className="teaser">
 
-     <div className="teaser__copy has-arrow">
-       <h2 className="teaser__title">
-         <a href={url}>
-           {title}
-         </a>
-       </h2>
+     <Copy
+       description={description}
+       title={title}
+       url={url}
+     />
 
-       <p>
-         {description}
-       </p>
-     </div>
-
-
-     <a
-        className="teaser__arrow"
-        href={url}
-     >
-       <span className="visuallyhidden">
-         {`Read more`}
-       </span>
-     </a>
+     <Arrow
+       url={url}
+     />
    </article>
   )
 
+}
+
+TeaserArrow.defaultProps = {
+  url: "#"
 }
 
 export default TeaserArrow
