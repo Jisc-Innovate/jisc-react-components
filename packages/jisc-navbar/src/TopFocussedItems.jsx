@@ -1,38 +1,32 @@
 // @flow
 
 import React from "react"
-
 import TopFocussedItem from "TopFocussedItem"
-
-import {FocussedItem} from "types/Item"
 
 type Props = {
   items: Array<FocussedItem>
 }
 
-class Items extends React.Component {
-  props: Props;
+const Items = function Items ({
+  items
+}: Props) {
 
-  render( ) {
-    const { items } = this.props
+  return (
+    <ul>
+      {items
+        .map(({link, name}) =>
 
-    return (
-      <ul>
-        {items
-          .map( ( item, i ) => {
-            const { link, name } = item
+          <TopFocussedItem
+            key={name}
+            link={link}
+            name={name}
+          />
 
-            return (
-              <TopFocussedItem
-                key={i}
-                link={link}
-                name={name} />
-            )
-          })
-        }
-      </ul>
-    )
-  }
+        )
+      }
+    </ul>
+  )
+
 }
 
 export default Items

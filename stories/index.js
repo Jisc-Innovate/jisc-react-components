@@ -5,6 +5,7 @@ import Welcome from "./Welcome"
 import ButtonPrimary from "../packages/jisc-button-primary"
 import Footer from "../packages/jisc-footer"
 import FormInputText from "../packages/jisc-form-input-text"
+import {NavBar} from "../packages/jisc-navbar"
 import TeaserArrow from "../packages/jisc-teaser-arrow"
 
 storiesOf("Welcome", module)
@@ -20,14 +21,6 @@ storiesOf("ButtonPrimary", module)
       />
   ))
 
-storiesOf("TeaserArrow", module)
-  .add("with text", () => (
-    <TeaserArrow
-      title="Hello Teaser Arrow"
-      description="This is an awesome teaser arrow with amazing features"
-      url="http://jisc.ac.uk"
-      />
-  ))
 
 storiesOf("Footer", module)
   .add("expanded", () => (
@@ -90,4 +83,19 @@ storiesOf("FormInputText", module)
         onClear={action( "cleared" )}
         />
     </ul>
+  ))
+
+storiesOf("NavBar", module)
+  .add("standar", () => (
+    <NavBar
+    />
+  ))
+
+storiesOf("TeaserArrow", module)
+  .add("with text", () => (
+    <TeaserArrow
+      title="Hello Teaser Arrow"
+      description="This is an awesome teaser arrow with amazing features"
+      url="http://jisc.ac.uk"
+      />
   ))

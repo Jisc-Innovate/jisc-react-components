@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import webpack from "webpack"
 import path from "path"
 
@@ -5,8 +7,13 @@ const APP_DIR = path.join( __dirname, "src" )
 
 const config = {
   entry: {
-    navbar: APP_DIR + "/NavBar.jsx",
-    "navbar-tab": APP_DIR + "/Tab.jsx"
+    navbar: APP_DIR + "/NavBar",
+    "navbar-tab": APP_DIR + "/Tab"
+  },
+
+  resolve: {
+    extensions: [ ".js", ".jsx" ],
+    modules: [ path.resolve(__dirname, "src"), "node_modules" ]
   },
 
   externals: {

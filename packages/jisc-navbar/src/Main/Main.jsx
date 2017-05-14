@@ -1,28 +1,24 @@
 // @flow
 
+import Primary from "Main/Primary"
 import React from "react"
-
-import Primary from "./Primary.jsx"
-import Secondary from "./Secondary.jsx"
-
-import {TabType} from "types/Tab"
+import Secondary from "Main/Secondary"
 
 type Props = {
-  title: string,
-  renderTabs: ( ) => void,
-
   primary: Array<TabType>,
-
-  secondary: Array<TabType>
+  renderTabs: RenderTabsFunction,
+  secondary: Array<TabType>,
+  title: string
 }
 
-class Main extends React.Component {
-  props: Props;
+const Main = function Main ({
+  renderTabs,
+  primary,
+  secondary,
+  title
+}: Props) {
 
-  render( ) {
-    const { title, renderTabs, primary, secondary } = this.props
-
-    return(
+    return (
       <div className="masthead__main masthead__main--with-content">
         <div className="inner">
           <p className="masthead__title masthead__title--short">
@@ -31,20 +27,19 @@ class Main extends React.Component {
 
           <div className="nav-wrapper">
             <Primary
+              renderTabs={renderTabs}
               tabs={primary}
-              renderTabs={renderTabs} />
+            />
 
             <Secondary
+              renderTabs={renderTabs}
               tabs={secondary}
-              renderTabs={renderTabs} />
+            />
           </div>
         </div>
       </div>
     )
-  }
-}
 
-Main.propTypes = {
 }
 
 export default Main
