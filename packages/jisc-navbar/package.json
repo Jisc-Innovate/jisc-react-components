@@ -13,7 +13,8 @@
   },
   "peerDependencies": {
     "react": "^15.4.2",
-    "react-router": "^3.0.0 || ^4.0.0"
+    "react-router": "^3.0.0 || ^4.0.0",
+    "recompose": "^0.23.4"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
@@ -53,8 +54,5 @@
       "node_modules",
       "src"
     ]
-  },
-  "dependencies": {
-    "recompose": "^0.23.4"
   }
 }

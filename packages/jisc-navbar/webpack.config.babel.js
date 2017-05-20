@@ -28,6 +28,12 @@ const config = {
       commonjs2: "react-router",
       commonjs: "react-router",
       amd: "react-router"
+    },
+    "recompose": {
+      root: "Recompose",
+      commonjs2: "recompose",
+      commonjs: "recompose",
+      amd: "recompose"
     }
   },
 

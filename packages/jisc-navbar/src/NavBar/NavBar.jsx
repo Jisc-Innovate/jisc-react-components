@@ -6,6 +6,7 @@ import Top from "Top"
 
 type Props = {
   focussed?: boolean,
+  focussedClassname: string,
   focussedTitle?: string,
   focussedItems?: Array<FocussedItem>,
 
@@ -16,26 +17,19 @@ type Props = {
 }
 
 const NavBar = function NavBar ({
-  title,
-  primary = [],
-  secondary = [],
   focussed = false,
+  focussedClassname,
   focussedTitle = "",
   focussedItems = [],
-  renderTabs
+  renderTabs,
+  primary = [],
+  secondary = [],
+  title
 }: Props) {
-
-    let className = "masthead"
-
-    if (!focussed) {
-
-      className = "masthead--focussed"
-
-    }
 
     return (
       <header
-        className={`${className}`}
+        className={`${focussedClassname}`}
         data-mobilemenu
         role="banner"
       >
