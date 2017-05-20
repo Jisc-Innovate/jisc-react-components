@@ -18,6 +18,7 @@ Vagrant.configure("2") do |config|
 
 	config.vm.provider "virtualbox" do |v|
 		v.name = "JISC-REACT-COMPONENTS"
+    v.memory = 1024
 	end
 
 	config.vm.provision :shell, :path => "provision.sh", :keep_color => true

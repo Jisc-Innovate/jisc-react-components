@@ -11,28 +11,30 @@ type Props = {
 const FooterMenuItem = ({
   item
 }: Props) =>
-  <span>
-    {item
-     .map((text, index) =>
-       <Choose
-         key={text}
-       >
-         <When condition={index === FIRST_ITEM}>
-          <span
+  <li className="linklist__item">
+    <a href="#">
+      {item
+        .map((text, index) =>
+          <Choose
             key={text}
           >
-            {text}
-          </span>
-         </When>
-         <Otherwise>
-          <span
-            className="linklist__item__break"
-          >
-            {text}
-          </span>
-         </Otherwise>
-       </Choose>
-     )}
-  </span>
+            <When condition={index === FIRST_ITEM}>
+              <span
+                key={text}
+              >
+                {text}
+              </span>
+            </When>
+            <Otherwise>
+              <span
+                className="linklist__item__break"
+              >
+                {text}
+              </span>
+            </Otherwise>
+          </Choose>
+      )}
+    </a>
+  </li>
 
 export default FooterMenuItem

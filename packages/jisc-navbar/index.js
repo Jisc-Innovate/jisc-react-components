@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 
 module.exports = {
-  NavBar: require("./lib/jisc-navbar").default,
+  NavBar: require("./lib/jisc-navbar"),
   NavBarTab: require("./lib/jisc-navbar-tab").default
 }
 

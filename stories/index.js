@@ -4,8 +4,9 @@ import { action, storiesOf } from "@kadira/storybook"
 import ButtonPrimary from "../packages/jisc-button-primary"
 import Footer from "../packages/jisc-footer"
 import FormInputText from "../packages/jisc-form-input-text"
-import NavBar from "../packages/jisc-navbar"
 import TeaserArrow from "../packages/jisc-teaser-arrow"
+
+const NavBar = require("../packages/jisc-navbar").NavBar.default
 
 storiesOf("ButtonPrimary", module)
   .add("with text", () => (
@@ -81,7 +82,7 @@ storiesOf("FormInputText", module)
 
 storiesOf("NavBar", module)
   .add("standard", () => (
-    <NavBar.NavBar
+    <NavBar
     />
   ))
 

@@ -1,7 +1,7 @@
 // @flow
 
-import FooterDescription from "../FooterDescription"
-import FooterMenu from "../FooterMenu"
+import FooterDescription from "FooterDescription"
+import FooterMenu from "FooterMenu"
 import React from "react"
 import createMarkup from "utilities/createMarkup"
 

@@ -45,7 +45,9 @@ const config = {
   output: {
     path: path.join( __dirname, "lib" ),
     filename: "jisc-[name].js",
-    libraryTarget: "umd"
+    library: "jisc-navbar",
+    libraryTarget: "umd",
+    umdNamedDefine: true
   },
 
   module: {
