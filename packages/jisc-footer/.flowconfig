@@ -1,0 +1,11 @@
+[options]
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=src
+module.name_mapper='.*\.\(svg\|png\|jpg\|gif\)$' -> '<PROJECT_ROOT>/UrlLoader.js.flow'
+
+[ignore]
+.*/node_modules/stylelint.*
+
+[libs]
+./node_modules/jsx-control-statements/jsx-control-statements.flow.js
+./flow-typed/.*

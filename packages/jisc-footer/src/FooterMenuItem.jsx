@@ -1,50 +1,38 @@
-import React, { PropTypes } from "react"
+// @flow
 
-class FooterMenuItem extends React.Component {
-  renderItem( ) {
-    const { item } = this.props
+import React from "react"
 
-    if( typeof item === "string" ) {
-      return(
-        <span>
-          {item}
-        </span>
-      )
-    }
+const FIRST_ITEM = 0
 
-    if( Array.isArray( item ) ) {
-      return(
-        item
-         .map( ( item, i ) => {
-           const className = i === 0 ? "" : "linklist__item__break"
-
-           return(
-             <span
-               key={i}
-               className={className}>
-                 {item}
-             </span>
-           )
-         })
-      )
-    }
-  }
-
-  render( ) {
-    return(
-      <li className="linklist__item">
-        <a href="#">
-          {this.renderItem( )}
-        </a>
-      </li>
-    )
-  }
+type Props = {
+  item: Array<string>
 }
 
-FooterMenuItem.propTypes = {
-  item: PropTypes.oneOfType(
-    [ PropTypes.string, PropTypes.arrayOf( PropTypes.string ) ]
-  )
-}
+const FooterMenuItem = ({
+  item
+}: Props) =>
+  <span>
+    {item
+     .map((text, index) =>
+       <Choose
+         key={text}
+       >
+         <When condition={index === FIRST_ITEM}>
+          <span
+            key={text}
+          >
+            {text}
+          </span>
+         </When>
+         <Otherwise>
+          <span
+            className="linklist__item__break"
+          >
+            {text}
+          </span>
+         </Otherwise>
+       </Choose>
+     )}
+  </span>
 
 export default FooterMenuItem
