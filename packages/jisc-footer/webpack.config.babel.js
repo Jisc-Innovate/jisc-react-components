@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import webpack from "webpack"
 import path from "path"
 
@@ -5,7 +7,7 @@ const APP_DIR = path.join( __dirname, "src" )
 
 const config = {
   entry: [
-    APP_DIR + "/Footer.jsx"
+    APP_DIR + "/Footer"
   ],
 
   externals: {
