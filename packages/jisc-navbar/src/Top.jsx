@@ -1,10 +1,8 @@
 // @flow
 
-import {Link} from "react-router"
 import React from "react"
 import TopDefault from "TopDefault"
 import TopFocussed from "TopFocussed"
-import image from "url-loader!./logo.png"
 
 type Props = {
   focussed: boolean,
@@ -21,15 +19,6 @@ const Top = function Top ({
     return (
       <div className="masthead__top">
         <div className="inner">
-          <Link
-            className="masthead__logo"
-            to="/"
-          >
-            <img
-              alt="Jisc logo"
-              src={image}
-            />
-          </Link>
 
           <Choose>
             <When condition={focussed}>

@@ -10,7 +10,7 @@ const focussedClassname = function focussedClassname ({focussed}: Props) {
 
       let className = "masthead"
 
-      if (!focussed) {
+      if (focussed) {
 
         className = "masthead--focussed"
 

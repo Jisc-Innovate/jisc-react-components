@@ -1,5 +1,5 @@
 // @flow
 
-import Main from "Main"
+import Main from "Main/Main"
 
 export default Main

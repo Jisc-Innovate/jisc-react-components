@@ -1,12 +1,10 @@
 import React from "react" // eslint-disable-line no-unused-vars
 import { action, storiesOf } from "@kadira/storybook"
-
+import NavBar from "../packages/jisc-navbar/src/NavBar"
 import ButtonPrimary from "../packages/jisc-button-primary"
 import Footer from "../packages/jisc-footer"
 import FormInputText from "../packages/jisc-form-input-text"
 import TeaserArrow from "../packages/jisc-teaser-arrow"
-
-const NavBar = require("../packages/jisc-navbar").NavBar.default
 
 storiesOf("ButtonPrimary", module)
   .add("with text", () => (
@@ -83,6 +81,13 @@ storiesOf("FormInputText", module)
 storiesOf("NavBar", module)
   .add("standard", () => (
     <NavBar
+      title="Hello NavBar!"
+    />
+  ))
+  .add("focussed", () => (
+    <NavBar
+      focussed
+      focussedTitle="Focussed NavBar"
     />
   ))
 

@@ -13,7 +13,7 @@ type Props = {
   primary?: Array<TabType>,
   renderTabs: RenderTabsFunction,
   secondary?: Array<TabType>,
-  title: string
+  title?: string
 }
 
 const NavBar = function NavBar ({
@@ -24,7 +24,7 @@ const NavBar = function NavBar ({
   renderTabs,
   primary = [],
   secondary = [],
-  title
+  title = ""
 }: Props) {
 
     return (
@@ -58,7 +58,9 @@ NavBar.defaultProps = {
   focussedTitle: "",
 
   primary: [],
-  secondary: []
+  secondary: [],
+
+  title: ""
 }
 
 export default NavBar

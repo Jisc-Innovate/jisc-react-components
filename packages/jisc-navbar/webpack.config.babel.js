@@ -1,11 +1,11 @@
 /* eslint-disable */
 
-import webpack from "webpack"
-import path from "path"
+const webpack = require("webpack")
+const path = require("path")
 
 const APP_DIR = path.join( __dirname, "src" )
 
-const config = {
+module.exports = {
   entry: {
     navbar: APP_DIR + "/NavBar",
     "navbar-tab": APP_DIR + "/Tab"
@@ -28,12 +28,6 @@ const config = {
       commonjs2: "react-router",
       commonjs: "react-router",
       amd: "react-router"
-    },
-    "recompose": {
-      root: "Recompose",
-      commonjs2: "recompose",
-      commonjs: "recompose",
-      amd: "recompose"
     }
   },
 
@@ -66,5 +60,3 @@ const config = {
     new webpack.optimize.UglifyJsPlugin( )
   ]
 }
-
-export default config
