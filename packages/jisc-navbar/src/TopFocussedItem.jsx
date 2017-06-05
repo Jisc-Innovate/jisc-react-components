@@ -2,23 +2,21 @@
 
 import React from "react"
 
-import {FocussedItem} from "types/Item"
+const Item = function Item ({
+  link = "#",
+  name
+}: FocussedItem) {
 
-class Item extends React.Component {
-  props: FocussedItem;
+  return (
+    <li
+      className="masthead__nav__item"
+    >
+      <a href={`${link}`}>
+        {name}
+      </a>
+    </li>
+  )
 
-  render( ) {
-    const { link, name } = this.props
-
-    return (
-      <li
-        className="masthead__nav__item">
-          <a href={`${link}`}>
-            {name}
-          </a>
-      </li>
-    )
-  }
 }
 
 export default Item

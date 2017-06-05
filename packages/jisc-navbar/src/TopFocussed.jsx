@@ -1,44 +1,49 @@
 // @flow
 
 import React from "react"
-
-import TopFocussedItems from "./TopFocussedItems"
-
-import {FocussedItem} from "types/Item"
+import TopFocussedItems from "TopFocussedItems"
 
 type Props = {
-  title: ?string,
-  items: Array<FocussedItem>
+  items: Array<FocussedItem>,
+  title: string
 }
 
-class TopFocussed extends React.Component {
-  props: Props;
+const TopFocussed = function TopFocussed ({
+  items,
+  title
+}: Props) {
 
-  render( ) {
-    const { title, items } = this.props
-
-    return(
-      <div>
-        <div id="nav" className="title-nav" data-dropdown>
-          <div className="has-popup masthead__nav__item" data-dropdown-item>
-            <h1 className="masthead__title masthead__title--long">
-              <a href="/">
-                {title}
-              </a>
-            </h1>
-          </div>
+  return (
+    <div>
+      <div
+        className="title-nav"
+        data-dropdown
+        id="nav"
+      >
+        <div
+          className="has-popup masthead__nav__item"
+          data-dropdown-item
+        >
+          <h1 className="masthead__title masthead__title--long">
+            <a href="/">
+              {title}
+            </a>
+          </h1>
         </div>
-
-        <nav
-          className="masthead__nav masthead__nav--primary"
-          role="navigation"
-          data-dropdown>
-            <TopFocussedItems
-              items={items} />
-        </nav>
       </div>
-    )
-  }
+
+      <nav
+        className="masthead__nav masthead__nav--primary"
+        data-dropdown
+        role="navigation"
+      >
+        <TopFocussedItems
+          items={items}
+        />
+      </nav>
+    </div>
+  )
+
 }
 
 export default TopFocussed

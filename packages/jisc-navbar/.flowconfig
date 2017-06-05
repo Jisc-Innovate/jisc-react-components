@@ -6,3 +6,7 @@ module.name_mapper='.*\.\(svg\|png\|jpg\|gif\)$' -> '<PROJECT_ROOT>/UrlLoader.js
 
 [ignore]
 .*/node_modules/stylelint.*
+
+[libs]
+./node_modules/jsx-control-statements/jsx-control-statements.flow.js
+./flow-typed/.*

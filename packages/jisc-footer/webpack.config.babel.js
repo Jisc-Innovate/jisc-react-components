@@ -1,11 +1,13 @@
-import webpack from "webpack"
-import path from "path"
+/* eslint-disable */
+
+const webpack = require("webpack")
+const path = require("path")
 
 const APP_DIR = path.join( __dirname, "src" )
 
-const config = {
+module.exports = {
   entry: [
-    APP_DIR + "/Footer.jsx"
+    APP_DIR + "/Footer"
   ],
 
   externals: {
@@ -14,7 +16,14 @@ const config = {
       commonjs2: "react",
       commonjs: "react",
       amd: "react"
-    }
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom',
+      umd: 'react-dom',
+    },
   },
 
   resolve: {
@@ -25,7 +34,9 @@ const config = {
   output: {
     path: path.join( __dirname, "lib" ),
     filename: "jisc-footer.js",
-    libraryTarget: "umd"
+    library: "jisc-footer",
+    libraryTarget: "umd",
+    umdNamedDefine: true
   },
 
   module: {
@@ -33,7 +44,12 @@ const config = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loader: "babel-loader",
+        options: {
+          presets: [
+            'es2015'
+          ]
+        }
       }
     ]
   },
@@ -44,5 +60,3 @@ const config = {
     new webpack.optimize.UglifyJsPlugin( )
   ]
 }
-
-export default config
