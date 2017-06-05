@@ -2,7 +2,11 @@ const path = require("path")
 
 module.exports = {
   resolve: {
-    root: [path.resolve(__dirname, "../packages/jisc-navbar/src"), "node_modules"]
+    root: [
+      path.resolve(__dirname, "../packages/jisc-navbar/src"),
+      path.resolve(__dirname, "../packages/jisc-footer/src"),
+      "node_modules"
+    ]
   },
   module: {
     loaders: [
@@ -12,7 +16,8 @@ module.exports = {
       },
       {
         test: /\.(png|gif)$/,
-        loader: "url-loader?limit=8192"
+        loader: "url-loader?limit=8192",
+        include: [path.resolve(__dirname, "../ux-patterns")]
       },
       {
         test: /\.(woff(2)?|svg|ttf|eot)(\?[a-z0-9\.=#]+)?$/,

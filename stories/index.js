@@ -2,7 +2,7 @@ import React from "react" // eslint-disable-line no-unused-vars
 import { action, storiesOf } from "@kadira/storybook"
 import NavBar from "../packages/jisc-navbar/src/NavBar"
 import ButtonPrimary from "../packages/jisc-button-primary"
-import Footer from "../packages/jisc-footer"
+import Footer from "../packages/jisc-footer/src/Footer"
 import FormInputText from "../packages/jisc-form-input-text"
 import TeaserArrow from "../packages/jisc-teaser-arrow"
 

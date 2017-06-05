@@ -1,19 +1,14 @@
 // @flow
 
-import React from "react"
-import image from "url-loader!./jisc-logo.png"
+import React from "react";
+import image from "url-loader!./jisc-logo.png";
 
 const FooterDescription = () =>
   <div className="col span-6">
     <div className="l-gutter--right">
       <div className="divisional-info">
         <div className="divisional-info__side">
-          <img
-            alt="Jisc logo"
-            height="93"
-            src={image}
-            width="158"
-          />
+          <img alt="Jisc logo" height="93" src={image} width="158" />
         </div>
 
         <div className="divisional-info__body">
@@ -34,6 +29,6 @@ const FooterDescription = () =>
         </div>
       </div>
     </div>
-  </div>
+  </div>;
 
-export default FooterDescription
+export default FooterDescription;
