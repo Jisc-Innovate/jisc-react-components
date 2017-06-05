@@ -10,21 +10,11 @@ type Props = {
   name: string
 }
 
-const Tab = function Tab ({
-  name,
-  link,
-  active,
-  hide
-}: Props) {
-
-    return (
-      <li className={`nav__item ${active} ${hide}`}>
-        <Link to={link}>
-          {name}
-        </Link>
-      </li>
-    )
-
-}
+const Tab = ({name, link, active, hide}: Props) =>
+  <li className={`nav__item ${active} ${hide}`}>
+    <Link to={link}>
+      {name}
+    </Link>
+  </li>
 
 export default Tab

@@ -6,24 +6,17 @@ type Props = {
   tabs: Array<React.Element<any>>
 }
 
-const Primary = function Primary ({
-  tabs
-}: Props) {
+const Primary = ({tabs}: Props) =>
+  <nav
+    className="masthead__nav header__nav--primary"
+    data-dropdown
+    role="navigation"
+  >
 
-  return (
-    <nav
-       className="masthead__nav header__nav--primary"
-       data-dropdown
-       role="navigation"
-    >
+    <ul>
+      {tabs}
+    </ul>
 
-      <ul>
-        {tabs}
-      </ul>
-
-    </nav>
-  )
-
-}
+  </nav>
 
 export default Primary

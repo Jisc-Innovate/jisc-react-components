@@ -6,19 +6,19 @@ type Props = {
   focussed: boolean
 }
 
-const focussedClassname = function focussedClassname ({focussed}: Props) {
+const focussedClassname = ({focussed}: Props) => {
 
-      let className = "masthead"
+  let className = "masthead"
 
-      if (focussed) {
+  if (focussed) {
 
-        className = "masthead--focussed"
+    className = "masthead--focussed"
 
-      }
+  }
 
-      return {
-        focussedClassname: className
-      }
+  return {
+    focussedClassname: className
+  }
 
 }
 

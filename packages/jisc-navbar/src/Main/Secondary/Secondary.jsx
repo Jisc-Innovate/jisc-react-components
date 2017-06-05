@@ -6,24 +6,17 @@ type Props = {
   tabs: Array<React.Element<any>>
 }
 
-const Secondary = function Secondary ({
-  tabs
-}: Props) {
+const Secondary = ({tabs}: Props) =>
+  <nav
+    className="masthead__nav masthead__nav--secondary"
+    data-dropdown
+    role="navigation"
+  >
 
-  return (
-    <nav
-       className="masthead__nav masthead__nav--secondary"
-       data-dropdown
-       role="navigation"
-    >
+    <ul>
+      {tabs}
+    </ul>
 
-      <ul>
-        {tabs}
-      </ul>
-
-      </nav>
-  )
-
-}
+  </nav>
 
 export default Secondary

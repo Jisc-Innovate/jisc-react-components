@@ -8,14 +8,14 @@ const Item = function Item ({
 }: FocussedItem) {
 
   return (
-      <li
-        className="masthead__nav__item"
-      >
-          <a href={`${link}`}>
-            {name}
-          </a>
-      </li>
-    )
+    <li
+      className="masthead__nav__item"
+    >
+      <a href={`${link}`}>
+        {name}
+      </a>
+    </li>
+  )
 
 }
 

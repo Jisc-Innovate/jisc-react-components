@@ -2,22 +2,19 @@
 
 import React from "react"
 
-class NavBarTopDefault extends React.Component {
-  render () {
+const NavBarTopDefault = () =>
+  <nav
+    aria-label="Main menu"
+    className="masthead__topnav"
+    role="navigation"
+  >
 
-    return (
-      <nav
-       className="masthead__topnav"
-       aria-label="Main menu"
-       role="navigation"
-      >
+    <ul
+      className="topnav__list"
+      data-dropdown
+      id="nav"
+    />
 
-        <ul className="topnav__list" id="nav" data-dropdown />
-
-      </nav>
-    )
-
-}
-}
+  </nav>
 
 export default NavBarTopDefault

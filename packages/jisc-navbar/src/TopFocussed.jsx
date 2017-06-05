@@ -14,35 +14,35 @@ const TopFocussed = function TopFocussed ({
 }: Props) {
 
   return (
-      <div>
+    <div>
+      <div
+        className="title-nav"
+        data-dropdown
+        id="nav"
+      >
         <div
-          className="title-nav"
-          data-dropdown
-          id="nav"
+          className="has-popup masthead__nav__item"
+          data-dropdown-item
         >
-          <div
-            className="has-popup masthead__nav__item"
-            data-dropdown-item
-          >
-            <h1 className="masthead__title masthead__title--long">
-              <a href="/">
-                {title}
-              </a>
-            </h1>
-          </div>
+          <h1 className="masthead__title masthead__title--long">
+            <a href="/">
+              {title}
+            </a>
+          </h1>
         </div>
-
-        <nav
-          className="masthead__nav masthead__nav--primary"
-          data-dropdown
-          role="navigation"
-        >
-            <TopFocussedItems
-              items={items}
-            />
-        </nav>
       </div>
-    )
+
+      <nav
+        className="masthead__nav masthead__nav--primary"
+        data-dropdown
+        role="navigation"
+      >
+        <TopFocussedItems
+          items={items}
+        />
+      </nav>
+    </div>
+  )
 
 }
 

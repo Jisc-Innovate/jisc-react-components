@@ -16,7 +16,7 @@ type Props = {
   title?: string
 }
 
-const NavBar = function NavBar ({
+const NavBar = ({
   focussed = false,
   focussedClassname,
   focussedTitle = "",
@@ -25,32 +25,27 @@ const NavBar = function NavBar ({
   primary = [],
   secondary = [],
   title = ""
-}: Props) {
+}: Props) =>
+  <header
+    className={`${focussedClassname}`}
+    data-mobilemenu
+    role="banner"
+  >
+    <Top
+      focussed={focussed}
+      focussedItems={focussedItems}
+      focussedTitle={focussedTitle}
+    />
 
-    return (
-      <header
-        className={`${focussedClassname}`}
-        data-mobilemenu
-        role="banner"
-      >
-        <Top
-          focussed={focussed}
-          focussedItems={focussedItems}
-          focussedTitle={focussedTitle}
-        />
-
-        <If condition={!focussed}>
-          <Main
-            primary={primary}
-            renderTabs={renderTabs}
-            secondary={secondary}
-            title={title}
-          />
-        </If>
-      </header>
-    )
-
-}
+    <If condition={!focussed}>
+      <Main
+        primary={primary}
+        renderTabs={renderTabs}
+        secondary={secondary}
+        title={title}
+      />
+    </If>
+  </header>
 
 NavBar.defaultProps = {
   focussed: false,

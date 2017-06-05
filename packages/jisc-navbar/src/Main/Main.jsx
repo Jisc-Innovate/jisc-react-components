@@ -11,35 +11,25 @@ type Props = {
   title: string
 }
 
-const Main = function Main ({
-  renderTabs,
-  primary,
-  secondary,
-  title
-}: Props) {
+const Main = ({renderTabs, primary, secondary, title}: Props) =>
+  <div className="masthead__main masthead__main--with-content">
+    <div className="inner">
+      <p className="masthead__title masthead__title--short">
+        {title}
+      </p>
 
-    return (
-      <div className="masthead__main masthead__main--with-content">
-        <div className="inner">
-          <p className="masthead__title masthead__title--short">
-            {title}
-          </p>
+      <div className="nav-wrapper">
+        <Primary
+          renderTabs={renderTabs}
+          tabs={primary}
+        />
 
-          <div className="nav-wrapper">
-            <Primary
-              renderTabs={renderTabs}
-              tabs={primary}
-            />
-
-            <Secondary
-              renderTabs={renderTabs}
-              tabs={secondary}
-            />
-          </div>
-        </div>
+        <Secondary
+          renderTabs={renderTabs}
+          tabs={secondary}
+        />
       </div>
-    )
-
-}
+    </div>
+  </div>
 
 export default Main

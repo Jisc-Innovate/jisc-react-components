@@ -4,42 +4,36 @@ import React from "react"
 import Tab from "Tab"
 import {withProps} from "recompose"
 
-const renderTabsDefault = function renderTabsDefault (tabs: Array<TabType>) {
+const renderTabsDefault = (tabs: Array<TabType>) =>
+  tabs.map((tab) => {
 
-  return tabs
-    .map((tab) => {
+    const {name, link} = tab
 
-      const {name, link} = tab
+    let active = ""
 
-      let active = ""
+    if (tab.active) {
 
-      if (tab.active) {
+      active = "active"
 
-        active = "active"
+    }
 
-      }
+    let hide = "js-hide"
 
-      let hide = "js-hide"
+    if (tab.show) {
 
-      if (tab.show) {
+      hide = ""
 
-        hide = ""
+    }
 
-      }
+    return <Tab
+      active={active}
+      hide={hide}
+      key={link}
+      link={link}
+      name={name}
+           />
 
-      return (
-        <Tab
-          active={active}
-          hide={hide}
-          key={link}
-          link={link}
-          name={name}
-        />
-      )
-
-    })
-
-}
+  })
 
 type Props = {
   renderTabs: RenderTabsFunction
