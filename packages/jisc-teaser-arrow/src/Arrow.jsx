@@ -6,22 +6,15 @@ type Props = {
   url?: string
 }
 
-const Arrow = function Arrow ({
-  url
-}: Props) {
-
-  return (
-     <a
-        className="teaser__arrow"
-        href={url}
-     >
-       <span className="visuallyhidden">
-         {`Read more`}
-       </span>
-     </a>
-  )
-
-}
+const Arrow = ({url = "#"}: Props) =>
+  <a
+    className="teaser__arrow"
+    href={url}
+  >
+    <span className="visuallyhidden">
+      {`Read more`}
+    </span>
+  </a>
 
 Arrow.defaultProps = {
   url: "#"

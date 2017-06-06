@@ -3,8 +3,10 @@ const path = require("path")
 module.exports = {
   resolve: {
     root: [
+      path.resolve(__dirname, "../packages/jisc-button-primary/src"),
       path.resolve(__dirname, "../packages/jisc-navbar/src"),
       path.resolve(__dirname, "../packages/jisc-footer/src"),
+      path.resolve(__dirname, "../packages/jisc-teaser-arrow/src"),
       "node_modules"
     ]
   },

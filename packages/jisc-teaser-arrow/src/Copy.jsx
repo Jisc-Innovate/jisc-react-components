@@ -8,27 +8,18 @@ type Props = {
   url?: string
 }
 
-const Copy = function Copy ({
-  title,
-  description,
-  url
-}: Props) {
+const Copy = ({title, description, url = "#"}: Props) =>
+  <div className="teaser__copy has-arrow">
+    <h2 className="teaser__title">
+      <a href={url}>
+        {title}
+      </a>
+    </h2>
 
-  return (
-   <div className="teaser__copy has-arrow">
-     <h2 className="teaser__title">
-       <a href={url}>
-         {title}
-       </a>
-     </h2>
-
-     <p>
-       {description}
-     </p>
-   </div>
-  )
-
-}
+    <p>
+      {description}
+    </p>
+  </div>
 
 Copy.defaultProps = {
   url: "#"
