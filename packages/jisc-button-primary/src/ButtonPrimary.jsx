@@ -1,26 +1,28 @@
-import React, { PropTypes } from "react"
+// @flow
 
-class ButtonPrimary extends React.Component {
-  render( ) {
-    const { onClick, type, disabled, text } = this.props
+import React from "react"
 
-    return(
-      <button
-        onClick={onClick}
-        type={type}
-        disabled={disabled ? true : false}
-        className="btn btn--3d btn--primary">
-          {text}
-      </button>
-    )
-  }
+type Props = {
+  onClick?: () => void,
+  type?: string,
+  disabled?: boolean,
+  text: string
 }
 
-ButtonPrimary.propTypes = {
-  text: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-  type: PropTypes.string,
-  disabled: PropTypes.bool
+const ButtonPrimary = ({onClick, type, disabled, text}: Props) =>
+  <button
+    className="btn btn--3d btn--primary"
+    disabled={Boolean(disabled)}
+    onClick={onClick}
+    type={type}
+  >
+    {text}
+  </button>
+
+ButtonPrimary.defaultProps = {
+  disabled: false,
+  onClick: () => null,
+  type: ""
 }
 
 export default ButtonPrimary
