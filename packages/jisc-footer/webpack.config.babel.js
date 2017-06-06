@@ -1,14 +1,12 @@
 /* eslint-disable */
 
-const webpack = require("webpack")
-const path = require("path")
+const webpack = require("webpack");
+const path = require("path");
 
-const APP_DIR = path.join( __dirname, "src" )
+const APP_DIR = path.join(__dirname, "src");
 
 module.exports = {
-  entry: [
-    APP_DIR + "/Footer"
-  ],
+  entry: [APP_DIR + "/Footer"],
 
   externals: {
     react: {
@@ -17,13 +15,13 @@ module.exports = {
       commonjs: "react",
       amd: "react"
     },
-    'react-dom': {
-      root: 'ReactDOM',
-      commonjs2: 'react-dom',
-      commonjs: 'react-dom',
-      amd: 'react-dom',
-      umd: 'react-dom',
-    },
+    "react-dom": {
+      root: "ReactDOM",
+      commonjs2: "react-dom",
+      commonjs: "react-dom",
+      amd: "react-dom",
+      umd: "react-dom"
+    }
   },
 
   resolve: {
@@ -32,7 +30,7 @@ module.exports = {
   },
 
   output: {
-    path: path.join( __dirname, "lib" ),
+    path: path.join(__dirname, "lib"),
     filename: "jisc-footer.js",
     library: "jisc-footer",
     libraryTarget: "umd",
@@ -46,17 +44,15 @@ module.exports = {
         exclude: /node_modules/,
         loader: "babel-loader",
         options: {
-          presets: [
-            'es2015'
-          ]
+          presets: ["es2015"]
         }
       }
     ]
   },
 
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin( ),
+    new webpack.NoEmitOnErrorsPlugin(),
 
-    new webpack.optimize.UglifyJsPlugin( )
+    new webpack.optimize.UglifyJsPlugin()
   ]
-}
+};

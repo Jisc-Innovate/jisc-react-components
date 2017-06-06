@@ -1,23 +1,17 @@
 // @flow
 
-import FooterDescription from "FooterDescription"
-import FooterMenu from "FooterMenu"
-import React from "react"
-import createMarkup from "utilities/createMarkup"
+import FooterDescription from "FooterDescription";
+import FooterMenu from "FooterMenu";
+import React from "react";
+import createMarkup from "utilities/createMarkup";
 
 type Props = {
   copyright: string,
   minimal?: boolean
-}
+};
 
-const Footer = ({
-  copyright,
-  minimal = false
-}: Props) =>
-  <footer
-    className="footer site-footer"
-    role="contentinfo"
-  >
+const Footer = ({ copyright, minimal = false }: Props) =>
+  <footer className="footer site-footer" role="contentinfo">
     <If condition={!minimal}>
       <div className="inner l-pull-left medium l-gutter--top bottom-section">
         <div className="l-centre-offset row">
@@ -28,18 +22,15 @@ const Footer = ({
       </div>
     </If>
 
-      <div className="inner l-pull-left heavy">
-        <div className="l-centre-offset row cc-wrap">
-          <div
-            className="cc duo"
-            dangerouslySetInnerHTML={createMarkup(copyright)}
-          />
-        </div>
+    <div className="inner l-pull-left heavy">
+      <div className="l-centre-offset row cc-wrap">
+        <div className="cc duo" dangerouslySetInnerHTML={createMarkup(copyright)} />
       </div>
-  </footer>
+    </div>
+  </footer>;
 
 Footer.defaultProps = {
   minimal: false
-}
+};
 
-export default Footer
+export default Footer;

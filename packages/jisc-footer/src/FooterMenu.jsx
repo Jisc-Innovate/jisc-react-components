@@ -1,5 +1,5 @@
-import FooterMenuItem from "./FooterMenuItem"
-import React from "react"
+import FooterMenuItem from "./FooterMenuItem";
+import React from "react";
 
 const items = [
   ["Security"],
@@ -11,7 +11,7 @@ const items = [
   ["Procurement"],
   ["Telecoms"],
   ["Videoconferencing"]
-]
+];
 
 const FooterMenu = () =>
   <div className="col span-6">
@@ -21,16 +21,9 @@ const FooterMenu = () =>
       </div>
 
       <ul>
-        { items
-          .map((item) =>
-            <FooterMenuItem
-              item={item}
-              key={item}
-            />
-          )
-        }
+        {items.map(item => <FooterMenuItem item={item} key={item} />)}
       </ul>
     </div>
-  </div>
+  </div>;
 
-export default FooterMenu
+export default FooterMenu;

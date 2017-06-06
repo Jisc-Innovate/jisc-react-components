@@ -1,12 +1,12 @@
+/* eslint-disable */
+
 import webpack from "webpack"
 import path from "path"
 
-const APP_DIR = path.join( __dirname, "src" )
+const APP_DIR = path.join(__dirname, "src")
 
 const config = {
-  entry: [
-    APP_DIR + "/TeaserArrow.jsx"
-  ],
+  entry: [APP_DIR + "/TeaserArrow.jsx"],
 
   externals: {
     react: {
@@ -23,7 +23,7 @@ const config = {
   },
 
   output: {
-    path: path.join( __dirname, "lib" ),
+    path: path.join(__dirname, "lib"),
     filename: "jisc-teaser-arrow.js",
     libraryTarget: "umd"
   },
@@ -39,9 +39,9 @@ const config = {
   },
 
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin( ),
+    new webpack.NoEmitOnErrorsPlugin(),
 
-    new webpack.optimize.UglifyJsPlugin( )
+    new webpack.optimize.UglifyJsPlugin()
   ]
 }
 

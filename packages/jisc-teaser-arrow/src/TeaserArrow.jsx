@@ -10,28 +10,17 @@ type Props = {
   url?: string
 }
 
-const TeaserArrow = function TeaserArrow ({
-  title,
-  description,
-  url
-}: Props) {
+const TeaserArrow = ({title, description, url = "#"}: Props) =>
+  <article className="teaser">
 
-  return (
-    <article className="teaser">
+    <Copy
+      description={description}
+      title={title}
+      url={url}
+    />
 
-     <Copy
-       description={description}
-       title={title}
-       url={url}
-     />
-
-     <Arrow
-       url={url}
-     />
-   </article>
-  )
-
-}
+    <Arrow url={url} />
+  </article>
 
 TeaserArrow.defaultProps = {
   url: "#"
